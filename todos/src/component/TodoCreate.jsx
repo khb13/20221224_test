@@ -1,6 +1,5 @@
 //입력 제작
 import { useRef } from "react";
-import { useState } from "react";
 import styled from "styled-components";
 import { useDispatchState } from "../context/todos";
 import { useInputs } from "../hooks/useInputs";
@@ -23,7 +22,7 @@ function TodoCreate() {
 
   return (
     <CreateBox>
-      <input name="text" value={text} onChange={onChange}></input>
+      <input type="text" name="text" value={text} onChange={onChange}></input>
       <button onClick={handleSubmit}>입력</button>
     </CreateBox>
   );
