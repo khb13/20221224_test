@@ -1,4 +1,3 @@
-import { Children, useState } from "react";
 import styled, { css } from "styled-components";
 import { useDispatchState } from "../context/todos";
 
@@ -8,25 +7,32 @@ function TodoItem({ todo }) {
 
   const dispatch = useDispatchState();
 
-  const handleRemove = () => {
-    dispatch = { type: "REMOVE_TODO", id };
-  };
-
   return (
     <div>
-      <ItemBlock done={done} onClick={() => ({ type: "TOGGLE_TODO", id })}>
-        {text}
+      <ItemBlock done={done} onClick={() => dispatch({ type: "TOGGLE_TODO", id })}>
+        <p>
+          {text}
+        </p>
+      <Trash onClick={() => dispatch({type: "REMOVE_TODO", id})}>삭제</Trash>
       </ItemBlock>
-      <Trash onClick={handleRemove}>삭제</Trash>
     </div>
   );
 }
 
 const ItemBlock = styled.li`
+padding: 10px 10px;
+border-bottom: 1px solid #fff;
+align-items: center;
+display: flex;
+user-select: none;
+p{
+  flex: 1;
+}
+
   ${({ done }) =>
     done &&
     css`
-      color: white;
+      color: #bbb;
     `}
 `;
 

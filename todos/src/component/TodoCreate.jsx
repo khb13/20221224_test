@@ -22,7 +22,7 @@ function TodoCreate() {
 
   return (
     <CreateBox>
-      <input type="text" name="text" value={text} onChange={onChange}></input>
+      <input type="text" name="text" value={text} onChange={onChange} />
       <button onClick={handleSubmit}>입력</button>
     </CreateBox>
   );
@@ -33,6 +33,10 @@ const CreateBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  input{
+    flex:1;
+    margin: 5px;
+  }
 `;
 
 export default TodoCreate;

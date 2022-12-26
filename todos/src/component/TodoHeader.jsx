@@ -7,14 +7,14 @@ function TodoHeader() {
   const date = new Date();
   const dateStr = date.toLocaleDateString("ko-KR", { dateStyle: "full" });
 
-  //   const todos = useTodoState();
+    const todos = useTodoState();
 
-  //   const doneCount = todos.filter((todo)=>todo.done).length;
+    const doneCount = todos.filter((todo)=>todo.done).length;
   return (
     <Header>
-      <div style={{ justifyContent: "center" }}>{dateStr}</div>
-      <div>완료: 3/3</div>
-      {/* <div>완료: {doneCount} : {Todos.length}</div> */}
+      <Day>{dateStr}</Day>
+      {/* <div>완료: 3/3</div> */}
+      <Dones>완료: {doneCount} / {todos.length}</Dones>
     </Header>
   );
 }
@@ -23,5 +23,14 @@ const Header = styled.div`
   text-align: center;
   border-bottom: 1px solid #000;
 `;
+
+const Day = styled.div`
+  font-size: 1rem;
+`
+
+const Dones = styled.div`
+  padding-bottom: 5px;
+  font-size: 0.8rem;
+`
 
 export default TodoHeader;

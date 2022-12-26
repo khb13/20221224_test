@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 import Todos from "./component/Todos";
 
 const GlobalStyle = createGlobalStyle`
@@ -16,21 +16,24 @@ const Back = styled.div`
   height: 500px;
   justify-content: "center";
   align-items: "center";
-  /* display: flex; */
+  display: flex;
 `;
 
 function App() {
-  return (
-    <div>
-      <Back>
-        <GlobalStyle />
-        <Todo>
-          TodoList
-          <Todos />
-        </Todo>
-      </Back>
-    </div>
-  );
+    return (
+        <div>
+            <Back>
+                <GlobalStyle/>
+                <Todo>
+                  <Title>
+                    TodoList
+                  </Title>
+                    
+                    <Todos/>
+                </Todo>
+            </Back>
+        </div>
+    );
 }
 
 const Todo = styled.div`
@@ -39,5 +42,11 @@ const Todo = styled.div`
   width: 300px;
   height: 500px;
 `;
+
+const Title = styled.div`
+  font-size: 0.5rem;
+  font-weight: bold;
+  color: #888;
+`
 
 export default App;
